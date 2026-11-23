@@ -41,9 +41,9 @@
          <children>
             <TextField layoutX="780.0" layoutY="13.0" promptText="Filter by title or artist" />
             <Button layoutX="952.0" layoutY="13.0" mnemonicParsing="false" text="Filter" />
-            <Button layoutX="14.0" layoutY="13.0" mnemonicParsing="false" text="Button" />
-            <Button layoutX="81.0" layoutY="13.0" mnemonicParsing="false" text="Button" />
-            <Button layoutX="147.0" layoutY="13.0" mnemonicParsing="false" text="Button" />
+            <Button fx:id="btnPlayLast" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" text="&lt;---" />
+            <Button fx:id="btnStartPause" layoutX="64.0" layoutY="13.0" mnemonicParsing="false" text="start/pause" />
+            <Button fx:id="btnPlayNext" layoutX="151.0" layoutY="13.0" mnemonicParsing="false" text="---&gt;" />
          </children>
       </AnchorPane>
       <Label layoutX="14.0" layoutY="121.0" text="PLAYLISTS" />
