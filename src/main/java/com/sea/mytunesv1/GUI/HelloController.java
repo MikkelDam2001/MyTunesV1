@@ -28,10 +28,16 @@ public class HelloController{
     private Button btnStartPause;
 
     @FXML
-    public void handlePlayNext(ActionEvent actionEvent){}
+    public void handlePlayNext(ActionEvent actionEvent){
+
+    }
     @FXML
-    public void handlePlayLast(ActionEvent actionEvent){}
+    public void handlePlayPrevious(ActionEvent actionEvent){
+
+    }
     @FXML
-    public void handleStartPause(ActionEvent actionEvent){}
+    public void handlePlayPause(ActionEvent actionEvent){
+
+    }
 }
 
