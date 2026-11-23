@@ -9,11 +9,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableView;
 
-public class HelloController{
+import java.net.URL;
+import java.util.ResourceBundle;
+
+
+public class HelloController {
     @FXML
     private TableView<Playlist> tblPlaylists;
     @FXML
@@ -26,6 +29,10 @@ public class HelloController{
     private Button btnPlayLast;
     @FXML
     private Button btnStartPause;
+
+    public HelloController(){
+
+    }
 
     @FXML
     public void handlePlayNext(ActionEvent actionEvent){
