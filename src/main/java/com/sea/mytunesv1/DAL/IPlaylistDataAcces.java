@@ -9,7 +9,7 @@ public interface IPlaylistDataAcces {
 
     Playlist createPlaylist(Playlist newPlaylist) throws Exception;
 
-    void updatePlaylist(Playlist playlist) throws Exception;
+    void editPlaylist(Playlist playlist) throws Exception;
 
     void deletePlaylist(Playlist playlist) throws Exception;
 
