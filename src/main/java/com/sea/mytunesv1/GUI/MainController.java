@@ -3,13 +3,23 @@ package com.sea.mytunesv1.GUI;
 // Project imports
 import com.sea.mytunesv1.BE.Playlist;
 import com.sea.mytunesv1.BE.Song;
-
+import com.sea.mytunesv1.HelloApplication;
 // Java FX imports
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableView;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+
+// Java imports
+import java.io.IOException;
+import java.util.Objects;
 
 
 public class MainController {
@@ -74,10 +84,20 @@ public class MainController {
     @FXML
     public void handleDeleteSongOnPlaylist(ActionEvent actionEvent) {
     }
-    @FXML
-    public void handleNewSong(ActionEvent actionEvent) {
 
+    @FXML
+    public void handleNewSong(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(
+                Objects.requireNonNull(HelloApplication.class.getResource("newsongdialog.fxml")));
+        stage.setScene(new Scene(root));
+        stage.setTitle("Add New Song");
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(
+                ((Node)actionEvent.getSource()).getScene().getWindow() );
+        stage.show();
     }
+
     @FXML
     public void handleEditSong(ActionEvent actionEvent) {
     }

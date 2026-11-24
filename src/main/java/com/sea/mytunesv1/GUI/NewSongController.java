@@ -7,37 +7,35 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
+
+import java.io.File;
 
 public class NewSongController {
 
     @FXML
-    private TextField txtTitleOfSong;
+    private TextField txtTitle,txtArtist, txtLength, txtFile;
     @FXML
-    private TextField txtNameOfArtist;
-    @FXML
-    private TextField txtTime;
-    @FXML
-    private TextField txtFilePath;
-    @FXML
-    private Button btnChooseFile;
-    @FXML
-    private Button btnCancel;
-    @FXML
-    private Button btnSave;
+    private ComboBox<String> cmbCategory;
 
-    // List of song genre from Song class
-    @FXML
-    private ComboBox<Song> cBoxGenre;
+    private File selectedFile;
 
-    public void handleSaveNewSong(ActionEvent actionEvent) {
+    // Handles the chosen file
+    @FXML
+    public void handleChooseFile(ActionEvent actionEvent) {
+
+        FileChooser chooser = new FileChooser();
+        chooser.getExtensionFilters().add(
+                new FileChooser.ExtensionFilter("MP3 files", "*mp3"));
+        File file = chooser.showOpenDialog(txtFile.getScene().getWindow());
+        if (file != null) {
+            // sets file
+            selectedFile = file;
+            txtFile.setText(file.getName());
+        }
     }
 
-    public void handleCancelNewSong(ActionEvent actionEvent) {
-    }
 
-    public void handleFileChosen(ActionEvent actionEvent) {
-    }
-
-    public void handleChooseGenre(ActionEvent actionEvent) {
+    public void handleChooseCategory(ActionEvent actionEvent) {
     }
 }
