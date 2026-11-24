@@ -4,7 +4,7 @@ import com.sea.mytunesv1.BE.Song;
 
 import java.util.List;
 
-public interface ISongAcces {
+public interface ISongDataAcces {
     List<Song> getAllSongs() throws Exception;
 
     Song createSong(Song newSong) throws Exception;
