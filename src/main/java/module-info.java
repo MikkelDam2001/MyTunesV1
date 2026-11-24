@@ -1,6 +1,8 @@
 module com.sea.mytunesv1 {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
+    requires com.microsoft.sqlserver.jdbc;
 
 
     opens com.sea.mytunesv1.GUI to javafx.fxml;
