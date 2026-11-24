@@ -9,7 +9,7 @@ public interface ISongDataAcces {
 
     Song createSong(Song newSong) throws Exception;
 
-    void updateSong(Song song) throws Exception;
+    void editSong(Song song) throws Exception;
 
     void deleteSong (Song song) throws Exception;
 

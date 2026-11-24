@@ -8,9 +8,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="697.0" prefWidth="1039.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sea.mytunesv1.GUI.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="697.0" prefWidth="1039.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sea.mytunesv1.GUI.MainController">
    <children>
-      <TableView fx:id="tblAllSongs" layoutX="609.0" layoutY="138.0" prefHeight="514.0" prefWidth="416.0">
+      <TableView fx:id="tblAllSongs" layoutX="572.0" layoutY="138.0" prefHeight="514.0" prefWidth="453.0">
         <columns>
           <TableColumn fx:id="colTitle" prefWidth="75.0" text="Title" />
           <TableColumn fx:id="colArtist" prefWidth="75.0" text="Artist" />
@@ -21,7 +21,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <TableView fx:id="tblPlaylists" layoutX="14.0" layoutY="138.0" prefHeight="514.0" prefWidth="310.0">
+      <TableView fx:id="tblPlaylists" layoutX="14.0" layoutY="138.0" prefHeight="514.0" prefWidth="252.0">
         <columns>
           <TableColumn fx:id="colPlName" prefWidth="75.0" text="Name" />
           <TableColumn fx:id="colPlNumOfSongs" prefWidth="105.0" text="Songs" />
@@ -31,10 +31,10 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <ListView fx:id="lstSongsOnPlaylist" layoutX="341.0" layoutY="138.0" prefHeight="514.0" prefWidth="252.0" />
-      <Label layoutX="341.0" layoutY="121.0" prefHeight="17.0" prefWidth="121.0" text="SONGS IN PLAYLIST" />
-      <Label layoutX="512.0" layoutY="122.0" prefHeight="17.0" prefWidth="81.0" text="Playlist name" />
-      <Label layoutX="609.0" layoutY="121.0" prefHeight="17.0" prefWidth="107.0" text="ALL SONGS" />
+      <ListView fx:id="lstSongsOnPlaylist" layoutX="282.0" layoutY="138.0" prefHeight="514.0" prefWidth="271.0" />
+      <Label layoutX="282.0" layoutY="122.0" prefHeight="17.0" prefWidth="121.0" text="SONGS IN PLAYLIST" />
+      <Label layoutX="479.0" layoutY="122.0" prefHeight="17.0" prefWidth="81.0" text="Playlist name" />
+      <Label layoutX="572.0" layoutY="121.0" prefHeight="17.0" prefWidth="107.0" text="ALL SONGS" />
       <Label fx:id="lblTotalSongs" layoutX="963.0" layoutY="121.0" text="XX songs" />
       <AnchorPane layoutX="15.0" layoutY="14.0" prefHeight="90.0" prefWidth="1010.0">
          <children>
@@ -46,5 +46,14 @@
          </children>
       </AnchorPane>
       <Label layoutX="14.0" layoutY="121.0" text="PLAYLISTS" />
+      <Button fx:id="btnNewPlaylist" layoutX="14.0" layoutY="658.0" mnemonicParsing="false" onAction="#handleNewPlaylist" text="New" />
+      <Button fx:id="btnEditPlaylist" layoutX="66.0" layoutY="658.0" mnemonicParsing="false" onAction="#handleEditPlaylist" text="Edit" />
+      <Button fx:id="btnDeletePlaylist" layoutX="114.0" layoutY="658.0" mnemonicParsing="false" onAction="#handleDeletePlaylist" text="Delete" />
+      <Button fx:id="btnMoveUp" layoutX="282.0" layoutY="660.0" mnemonicParsing="false" onAction="#handleMoveUp" text="Button" />
+      <Button fx:id="btnMoveDown" layoutX="348.0" layoutY="659.0" mnemonicParsing="false" onAction="#handleMoveDown" text="Button" />
+      <Button fx:id="btnDeleteSongOnPlaylist" layoutX="498.0" layoutY="659.0" mnemonicParsing="false" onAction="#handleDeleteSongOnPlaylist" text="Delete" />
+      <Button fx:id="btnNewSong" layoutX="572.0" layoutY="658.0" mnemonicParsing="false" onAction="#handleNewSong" text="New" />
+      <Button fx:id="btnEditSong" layoutX="626.0" layoutY="658.0" mnemonicParsing="false" onAction="#handleEditSong" text="Edit" />
+      <Button fx:id="btnDeleteSong" layoutX="679.0" layoutY="658.0" mnemonicParsing="false" onAction="#handleDeleteSong" text="Delete" />
    </children>
 </AnchorPane>

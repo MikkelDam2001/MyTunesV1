@@ -17,7 +17,7 @@ public class PlaylistDAO_DB implements IPlaylistDataAcces {
     }
 
     @Override
-    public void updatePlaylist(Playlist playlist) throws Exception {
+    public void editPlaylist(Playlist playlist) throws Exception {
 
     }
 
