@@ -27,7 +27,7 @@ public class SongDAO_Mock implements ISongDataAcces {
     }
 
     @Override
-    public void updateSong(Song song) throws Exception {
+    public void editSong(Song song) throws Exception {
 
     }
 
