@@ -9,25 +9,25 @@ import java.util.List;
 
 public class SongModel {
 
-    private ObservableList <Song> SongsAvailable;
+    private ObservableList <Song> songsAvailable;
     private SongManager songManager;
 
     public SongModel() throws Exception {
         songManager = new SongManager();
-        SongsAvailable = FXCollections.observableArrayList();
-        SongsAvailable.addAll(songManager.getAllSongs());
+        songsAvailable = FXCollections.observableArrayList();
+        songsAvailable.addAll(songManager.getAllSongs());
     }
 
 
 
     public ObservableList<Song> getSongsAvailable() {
-        return SongsAvailable;
+        return songsAvailable;
     }
 
     public void searchsongs(String query) throws Exception {
         List<Song> searchResults = songManager.searchSongs(query);
-        SongsAvailable.clear();
-        SongsAvailable.addAll(searchResults);
+        songsAvailable.clear();
+        songsAvailable.addAll(searchResults);
     }
 
 

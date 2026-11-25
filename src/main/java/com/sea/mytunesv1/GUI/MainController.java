@@ -78,8 +78,8 @@ public class MainController {
     }
 
 
-    public void initialize(URL url, ResourceBundle resourceBundle)  {
-        tblAllSongs.setItems(SongModel.getSongsAvailable(songModel));
+    public void initialize()  {
+        tblAllSongs.setItems(songModel.getSongsAvailable());
 
        // txtSongSearch.textProperty().addListener((observableValue, oldValue, newValue) -> {
        //     try {
