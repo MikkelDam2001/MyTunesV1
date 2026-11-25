@@ -2,6 +2,7 @@ package com.sea.mytunesv1.BLL.Song;
 
 // Project imports
 import com.sea.mytunesv1.BE.Song;
+import com.sea.mytunesv1.DAL.DB.SongDAO_DB;
 import com.sea.mytunesv1.DAL.DB.SongDAO_Mock;
 import com.sea.mytunesv1.DAL.ISongDataAcces;
 
@@ -12,8 +13,11 @@ public class SongManager {
     private SongSearcher songSearcher = new SongSearcher();
     private ISongDataAcces songDAO;
 
+    //vælger hvorfra vi vil have data (enten database eller mock..)
     public SongManager() {
-        songDAO = new SongDAO_Mock(); }
+        //songDAO = new SongDAO_Mock();
+        songDAO = new SongDAO_DB();
+    }
 
     public List<Song> getAllSongs() throws Exception {
         return songDAO.getAllSongs();
