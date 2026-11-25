@@ -107,7 +107,7 @@ public class MainController {
     }
     @FXML
     public void handleNewPlaylist(ActionEvent actionEvent) throws IOException {
-
+        // TJEK OP PÅ EVT SPAGHETTI KODE SENERE.
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(
                 Objects.requireNonNull(HelloApplication.class.getResource("newplaylistdialog.fxml")));
@@ -117,13 +117,24 @@ public class MainController {
         stage.initOwner(
                 ((Node)actionEvent.getSource()).getScene().getWindow() );
         stage.show();
-
     }
     @FXML
     public void handleEditPlaylist(ActionEvent actionEvent) {
     }
     @FXML
-    public void handleDeletePlaylist(ActionEvent actionEvent) {
+    public void handleDeletePlaylist(ActionEvent actionEvent) throws IOException {
+        // TJEK OP PÅ EVT SPAGHETTI KODE SENERE.
+
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(
+                Objects.requireNonNull(HelloApplication.class.getResource("deleteplaylistdialog.fxml")));
+        stage.setScene(new Scene(root));
+        stage.setTitle("Delete Playlist");
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(
+                ((Node)actionEvent.getSource()).getScene().getWindow() );
+        stage.show();
+
     }
     @FXML
     public void handleMoveUp(ActionEvent actionEvent) {
@@ -132,7 +143,18 @@ public class MainController {
     public void handleMoveDown(ActionEvent actionEvent) {
     }
     @FXML
-    public void handleDeleteSongOnPlaylist(ActionEvent actionEvent) {
+    public void handleDeleteSongOnPlaylist(ActionEvent actionEvent) throws IOException {
+        // TJEK OP PÅ EVT SPAGHETTI KODE SENERE.
+
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(
+                Objects.requireNonNull(HelloApplication.class.getResource("deletesongonplaylistdialog.fxml")));
+        stage.setScene(new Scene(root));
+        stage.setTitle("Delete Song on Playlist");
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(
+                ((Node)actionEvent.getSource()).getScene().getWindow() );
+        stage.show();
     }
 
 
@@ -152,9 +174,22 @@ public class MainController {
 
     @FXML
     public void handleEditSong(ActionEvent actionEvent) {
+        // TJEK LINJE 150 i MRS APPLIKATION, DER SKAL LAVES NY CLASS TIL TIL EDIT MÅSKE.
     }
     @FXML
-    public void handleDeleteSong(ActionEvent actionEvent) {
+    public void handleDeleteSong(ActionEvent actionEvent) throws IOException {
+        // TJEK LINJE 174 I MRS APPLIKATION, CLASS ER OPRETTET TIL DELETE METODE.
+        // TJEK OP PÅ EVT SPAGHETTI KODE SENERE.
+
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(
+                Objects.requireNonNull(HelloApplication.class.getResource("deletesongdialog.fxml")));
+        stage.setScene(new Scene(root));
+        stage.setTitle("Delete Song");
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(
+                ((Node)actionEvent.getSource()).getScene().getWindow() );
+        stage.show();
     }
 
 
