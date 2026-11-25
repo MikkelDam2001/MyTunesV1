@@ -81,19 +81,11 @@ public class MainController {
         tblAllSongs.setItems(songModel.getSongsAvailable());
 
         // I initialize method
-// setup columns in tableview
+// setup columns i tableview
         colTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
         colArtist.setCellValueFactory(new PropertyValueFactory<>("artist"));
         colCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
         colTime.setCellValueFactory(new PropertyValueFactory<>("time"));
-       // txtSongSearch.textProperty().addListener((observableValue, oldValue, newValue) -> {
-       //     try {
-         //       songModel.searchSong(newValue);
-         //   } catch (Exception e) {
-           //     displayError(e);
-             //   e.printStackTrace();
-            //}
-        // });
 
 }
         private void displayError(Throwable t) {
@@ -126,7 +118,17 @@ public class MainController {
         stage.show();
     }
     @FXML
-    public void handleEditPlaylist(ActionEvent actionEvent) {
+    public void handleEditPlaylist(ActionEvent actionEvent) throws IOException {
+
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(
+                Objects.requireNonNull(HelloApplication.class.getResource("editplaylistdialog.fxml")));
+        stage.setScene(new Scene(root));
+        stage.setTitle("Edit Playlist");
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(
+                ((Node)actionEvent.getSource()).getScene().getWindow() );
+        stage.show();
     }
     @FXML
     public void handleDeletePlaylist(ActionEvent actionEvent) throws IOException {
@@ -180,8 +182,17 @@ public class MainController {
     }
 
     @FXML
-    public void handleEditSong(ActionEvent actionEvent) {
+    public void handleEditSong(ActionEvent actionEvent) throws IOException {
         // TJEK LINJE 150 i MRS APPLIKATION, DER SKAL LAVES NY CLASS TIL TIL EDIT MÅSKE.
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(
+                Objects.requireNonNull(HelloApplication.class.getResource("editsongdialog.fxml")));
+        stage.setScene(new Scene(root));
+        stage.setTitle("Edit Song");
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(
+                ((Node)actionEvent.getSource()).getScene().getWindow() );
+        stage.show();
     }
     @FXML
     public void handleDeleteSong(ActionEvent actionEvent) throws IOException {
