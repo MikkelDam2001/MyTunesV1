@@ -16,8 +16,6 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TableView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
-// Java imports
 import java.io.IOException;
 import java.util.Objects;
 
@@ -67,7 +65,18 @@ public class MainController {
     public void handlePlayPause(ActionEvent actionEvent){
     }
     @FXML
-    public void handleNewPlaylist(ActionEvent actionEvent) {
+    public void handleNewPlaylist(ActionEvent actionEvent) throws IOException {
+
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(
+                Objects.requireNonNull(HelloApplication.class.getResource("newplaylistdialog.fxml")));
+        stage.setScene(new Scene(root));
+        stage.setTitle("Add New Playlist");
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(
+                ((Node)actionEvent.getSource()).getScene().getWindow() );
+        stage.show();
+
     }
     @FXML
     public void handleEditPlaylist(ActionEvent actionEvent) {
@@ -87,6 +96,7 @@ public class MainController {
 
     @FXML
     public void handleNewSong(ActionEvent actionEvent) throws IOException {
+        // SETS NEW SONG STAGE.
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(
                 Objects.requireNonNull(HelloApplication.class.getResource("newsongdialog.fxml")));
