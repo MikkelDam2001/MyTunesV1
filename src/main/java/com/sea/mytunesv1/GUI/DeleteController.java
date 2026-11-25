@@ -16,12 +16,16 @@ public class DeleteController {
     @FXML
     public void handlePLCancelFinal(ActionEvent actionEvent) {
     }
+    @FXML
     public void handleSongDeleteFinal(ActionEvent actionEvent) {
     }
+    @FXML
     public void handleSongCancelFinal(ActionEvent actionEvent) {
     }
+    @FXML
     public void handleSongOnPLDeleteFinal(ActionEvent actionEvent) {
     }
+    @FXML
     public void handleSongOnPLCancelFinal(ActionEvent actionEvent) {
     }
 }

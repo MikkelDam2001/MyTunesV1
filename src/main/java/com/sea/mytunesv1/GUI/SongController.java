@@ -1,23 +1,25 @@
 package com.sea.mytunesv1.GUI;
 
-import com.sea.mytunesv1.BE.Song;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 
 import java.io.File;
 import java.util.Locale;
 
-public class NewSongController {
+public class SongController {
 
     @FXML
     private TextField txtTitle,txtArtist, txtLength, txtFile;
     @FXML
     private ComboBox<Locale.Category> cmbCategory;
+    @FXML
+    private Button btnSaveSongEdit;
+    @FXML
+    private Button btnCancelSongEdit;
 
     private File selectedFile;
 
@@ -52,5 +54,11 @@ public class NewSongController {
     @FXML
     private void handleSaveNewSong(ActionEvent actionEvent) {
         // get user song data from UI
+    }
+    @FXML
+    public void handleCancelEditSong(ActionEvent actionEvent) {
+    }
+    @FXML
+    public void handleSaveSongEdit(ActionEvent actionEvent) {
     }
 }

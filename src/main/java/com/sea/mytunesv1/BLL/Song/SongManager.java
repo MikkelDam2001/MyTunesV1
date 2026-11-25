@@ -13,8 +13,6 @@ public class SongManager {
     public SongManager() {
         songDAO = new SongDAO_Mock(); }
 
-
-
     public List<Song> getAllSongs() throws Exception {
         return songDAO.getAllSongs();
     }

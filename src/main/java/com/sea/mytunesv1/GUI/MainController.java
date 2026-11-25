@@ -126,7 +126,17 @@ public class MainController {
         stage.show();
     }
     @FXML
-    public void handleEditPlaylist(ActionEvent actionEvent) {
+    public void handleEditPlaylist(ActionEvent actionEvent) throws IOException {
+
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(
+                Objects.requireNonNull(HelloApplication.class.getResource("editplaylistdialog.fxml")));
+        stage.setScene(new Scene(root));
+        stage.setTitle("Edit Playlist");
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(
+                ((Node)actionEvent.getSource()).getScene().getWindow() );
+        stage.show();
     }
     @FXML
     public void handleDeletePlaylist(ActionEvent actionEvent) throws IOException {
@@ -180,8 +190,17 @@ public class MainController {
     }
 
     @FXML
-    public void handleEditSong(ActionEvent actionEvent) {
+    public void handleEditSong(ActionEvent actionEvent) throws IOException {
         // TJEK LINJE 150 i MRS APPLIKATION, DER SKAL LAVES NY CLASS TIL TIL EDIT MÅSKE.
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(
+                Objects.requireNonNull(HelloApplication.class.getResource("editsongdialog.fxml")));
+        stage.setScene(new Scene(root));
+        stage.setTitle("Edit Song");
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(
+                ((Node)actionEvent.getSource()).getScene().getWindow() );
+        stage.show();
     }
     @FXML
     public void handleDeleteSong(ActionEvent actionEvent) throws IOException {

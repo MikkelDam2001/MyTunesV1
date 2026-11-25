@@ -2,11 +2,10 @@ package com.sea.mytunesv1.GUI;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class NewPlaylistController {
+public class PlaylistController {
     @FXML
     private Label lblNewPlaylist, lblPlaylistName;
     @FXML
@@ -17,5 +16,11 @@ public class NewPlaylistController {
     }
     @FXML
     public void handleCancelNewPlaylist(ActionEvent actionEvent) {
+    }
+
+    public void handleSavePlaylistEdit(ActionEvent actionEvent) {
+    }
+
+    public void handleCancelPlaylistEdit(ActionEvent actionEvent) {
     }
 }
