@@ -19,7 +19,6 @@ public class SongModel {
     }
 
 
-
     public ObservableList<Song> getSongsAvailable() {
         return songsAvailable;
     }

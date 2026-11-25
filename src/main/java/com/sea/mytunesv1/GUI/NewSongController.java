@@ -40,7 +40,6 @@ public class NewSongController {
         }
     }
 
-
     @FXML
     private void handleChooseCategory(ActionEvent actionEvent) {
 
