@@ -7,6 +7,7 @@ import com.sea.mytunesv1.DAL.DB.SongDAO_Mock;
 import com.sea.mytunesv1.DAL.ISongDataAcces;
 
 // Java imports
+import java.io.IOException;
 import java.util.List;
 
 public class SongManager {
@@ -14,7 +15,7 @@ public class SongManager {
     private ISongDataAcces songDAO;
 
     //vælger hvorfra vi vil have data (enten database eller mock..)
-    public SongManager() {
+    public SongManager() throws IOException {
         //songDAO = new SongDAO_Mock();
         songDAO = new SongDAO_DB();
     }
