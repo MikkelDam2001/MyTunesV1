@@ -17,8 +17,6 @@ public class SongManager {
         songDAO = new SongDAO_DB();
     }
 
-
-
     public List<Song> getAllSongs() throws Exception {
         return songDAO.getAllSongs();
     }
