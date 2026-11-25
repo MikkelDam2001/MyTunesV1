@@ -1,5 +1,6 @@
 package com.sea.mytunesv1.GUI;
 
+// Java FX imports
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -7,6 +8,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 
+// Java imports
 import java.io.File;
 import java.util.Locale;
 
@@ -17,9 +19,7 @@ public class SongController {
     @FXML
     private ComboBox<Locale.Category> cmbCategory;
     @FXML
-    private Button btnSaveSongEdit;
-    @FXML
-    private Button btnCancelSongEdit;
+    private Button btnSaveSongEdit, btnCancelSongEdit;
 
     private File selectedFile;
 
