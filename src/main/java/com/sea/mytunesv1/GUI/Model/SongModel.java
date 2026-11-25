@@ -6,28 +6,28 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.util.List;
-import java.util.Locale;
 
 public class SongModel {
-    private ObservableList <Song> SongsAvailable;
+
+    private ObservableList <Song> songsAvailable;
     private SongManager songManager;
 
     public SongModel() throws Exception {
         songManager = new SongManager();
-        SongsAvailable = FXCollections.observableArrayList();
-        SongsAvailable.addAll(songManager.getAllSongs());
+        songsAvailable = FXCollections.observableArrayList();
+        songsAvailable.addAll(songManager.getAllSongs());
     }
 
 
 
-    public ObservableList<Song> getObservableMovies() {
-        return SongsAvailable;
+    public ObservableList<Song> getSongsAvailable() {
+        return songsAvailable;
     }
 
     public void searchsongs(String query) throws Exception {
         List<Song> searchResults = songManager.searchSongs(query);
-        SongsAvailable.clear();
-        SongsAvailable.addAll(searchResults);
+        songsAvailable.clear();
+        songsAvailable.addAll(searchResults);
     }
 
 

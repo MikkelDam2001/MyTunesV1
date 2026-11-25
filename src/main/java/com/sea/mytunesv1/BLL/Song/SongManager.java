@@ -8,15 +8,15 @@ import java.util.List;
 
 public class SongManager {
     private SongSearcher songSearcher = new SongSearcher();
-    private ISongDataAcces SongDAO;
+    private ISongDataAcces songDAO;
 
     public SongManager() {
-        SongDAO = new SongDAO_Mock(); }
+        songDAO = new SongDAO_Mock(); }
 
 
 
     public List<Song> getAllSongs() throws Exception {
-        return SongDAO.getAllSongs();
+        return songDAO.getAllSongs();
     }
 
     public List<Song> searchSongs(String query) throws Exception {
