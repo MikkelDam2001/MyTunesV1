@@ -20,7 +20,7 @@ public class SongModel {
 
 
 
-    public ObservableList<Song> getObservableMovies() {
+    public ObservableList<Song> getSongsAvailable() {
         return SongsAvailable;
     }
 

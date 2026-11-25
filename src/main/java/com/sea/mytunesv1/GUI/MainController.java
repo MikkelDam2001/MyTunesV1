@@ -3,6 +3,7 @@ package com.sea.mytunesv1.GUI;
 // Project imports
 import com.sea.mytunesv1.BE.Playlist;
 import com.sea.mytunesv1.BE.Song;
+import com.sea.mytunesv1.GUI.Model.SongModel;
 import com.sea.mytunesv1.HelloApplication;
 // Java FX imports
 import javafx.event.ActionEvent;
@@ -11,15 +12,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 // Java imports
 import java.io.IOException;
+import java.net.URL;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
 
 public class MainController {
@@ -53,10 +54,50 @@ public class MainController {
     private Button btnEditSong;
     @FXML
     private Button btnDeleteSong;
+    @FXML
+    public TableColumn colTitle;
+    @FXML
+    public TableColumn colArtist;
+    @FXML
+    public TableColumn colCategory;
+    @FXML
+    public TableColumn colTime;
+
+    private SongModel songModel;
+
 
     public MainController(){
 
+        try {
+            songModel = new SongModel();
+        } catch (Exception e) {
+            displayError(e);
+            e.printStackTrace();
+        }
+
     }
+
+
+    public void initialize(URL url, ResourceBundle resourceBundle)  {
+        tblAllSongs.setItems(SongModel.getSongsAvailable(songModel));
+
+       // txtSongSearch.textProperty().addListener((observableValue, oldValue, newValue) -> {
+       //     try {
+         //       songModel.searchSong(newValue);
+         //   } catch (Exception e) {
+           //     displayError(e);
+             //   e.printStackTrace();
+            //}
+        // });
+
+}
+        private void displayError(Throwable t) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Something went wrong");
+            alert.setHeaderText(t.getMessage());
+            alert.showAndWait();
+        }
+
     @FXML
     public void handlePlayNext(ActionEvent actionEvent){
     }
@@ -85,6 +126,7 @@ public class MainController {
     public void handleDeleteSongOnPlaylist(ActionEvent actionEvent) {
     }
 
+
     @FXML
     public void handleNewSong(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
@@ -104,5 +146,7 @@ public class MainController {
     @FXML
     public void handleDeleteSong(ActionEvent actionEvent) {
     }
+
+
 }
 
