@@ -24,7 +24,7 @@ public class SongSearcher {
     }
 
     //ingen ide hvorfor det skal være static
-    //her tjekker man om query er ens i forhold til titel og returnerer true eller false
+    //her tjekker man om query er ens/indeholder i forhold til titel og returnerer true eller false
     private static boolean compareToSongTitle(String query, Song song) {
         return song.getTitle().toLowerCase().contains(query.toLowerCase());
     }
