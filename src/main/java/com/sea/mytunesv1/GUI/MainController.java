@@ -5,6 +5,7 @@ import com.sea.mytunesv1.BE.Playlist;
 import com.sea.mytunesv1.BE.Song;
 import com.sea.mytunesv1.GUI.Model.SongModel;
 import com.sea.mytunesv1.HelloApplication;
+
 // Java FX imports
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,11 +17,10 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import java.io.IOException;
-import java.net.URL;
-import java.util.Objects;
-import java.util.ResourceBundle;
 
+// Java imports
+import java.util.Objects;
+import java.io.IOException;
 
 public class MainController {
     @FXML
@@ -30,37 +30,15 @@ public class MainController {
     @FXML
     private ListView lstSongsOnPlaylist;
     @FXML
-    private Button btnPlayNext;
+    private Button btnPlayNext, btnPlayLast,btnStartPause;
     @FXML
-    private Button btnPlayLast;
+    private Button btnNewPlaylist,btnEditPlaylist,btnDeletePlaylist;
     @FXML
-    private Button btnStartPause;
+    private Button btnMoveUp,btnMoveDown, btnDeleteSongOnPlaylist;
     @FXML
-    private Button btnNewPlaylist;
+    private Button btnNewSong,btnEditSong,btnDeleteSong;
     @FXML
-    private Button btnEditPlaylist;
-    @FXML
-    private Button btnDeletePlaylist;
-    @FXML
-    private Button btnMoveUp;
-    @FXML
-    private Button btnMoveDown;
-    @FXML
-    private Button btnDeleteSongOnPlaylist;
-    @FXML
-    private Button btnNewSong;
-    @FXML
-    private Button btnEditSong;
-    @FXML
-    private Button btnDeleteSong;
-    @FXML
-    public TableColumn colTitle;
-    @FXML
-    public TableColumn colArtist;
-    @FXML
-    public TableColumn colCategory;
-    @FXML
-    public TableColumn colTime;
+    public TableColumn colTitle, colArtist,colCategory, colTime;
 
     private SongModel songModel;
 
@@ -109,7 +87,7 @@ public class MainController {
         // TJEK OP PÅ EVT SPAGHETTI KODE SENERE.
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(
-                Objects.requireNonNull(HelloApplication.class.getResource("newplaylistdialog.fxml")));
+                Objects.requireNonNull(HelloApplication.class.getResource("New/newplaylistdialog.fxml")));
         stage.setScene(new Scene(root));
         stage.setTitle("Add New Playlist");
         stage.initModality(Modality.WINDOW_MODAL);
@@ -122,7 +100,7 @@ public class MainController {
 
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(
-                Objects.requireNonNull(HelloApplication.class.getResource("editplaylistdialog.fxml")));
+                Objects.requireNonNull(HelloApplication.class.getResource("Edit/editplaylistdialog.fxml")));
         stage.setScene(new Scene(root));
         stage.setTitle("Edit Playlist");
         stage.initModality(Modality.WINDOW_MODAL);
@@ -136,7 +114,7 @@ public class MainController {
 
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(
-                Objects.requireNonNull(HelloApplication.class.getResource("deleteplaylistdialog.fxml")));
+                Objects.requireNonNull(HelloApplication.class.getResource("Delete/deleteplaylistdialog.fxml")));
         stage.setScene(new Scene(root));
         stage.setTitle("Delete Playlist");
         stage.initModality(Modality.WINDOW_MODAL);
@@ -157,7 +135,7 @@ public class MainController {
 
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(
-                Objects.requireNonNull(HelloApplication.class.getResource("deletesongonplaylistdialog.fxml")));
+                Objects.requireNonNull(HelloApplication.class.getResource("Delete/deletesongonplaylistdialog.fxml")));
         stage.setScene(new Scene(root));
         stage.setTitle("Delete Song on Playlist");
         stage.initModality(Modality.WINDOW_MODAL);
@@ -172,7 +150,7 @@ public class MainController {
         // SETS NEW SONG STAGE.
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(
-                Objects.requireNonNull(HelloApplication.class.getResource("newsongdialog.fxml")));
+                Objects.requireNonNull(HelloApplication.class.getResource("New/newsongdialog.fxml")));
         stage.setScene(new Scene(root));
         stage.setTitle("Add New Song");
         stage.initModality(Modality.WINDOW_MODAL);
@@ -186,7 +164,7 @@ public class MainController {
         // TJEK LINJE 150 i MRS APPLIKATION, DER SKAL LAVES NY CLASS TIL TIL EDIT MÅSKE.
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(
-                Objects.requireNonNull(HelloApplication.class.getResource("editsongdialog.fxml")));
+                Objects.requireNonNull(HelloApplication.class.getResource("Edit/editsongdialog.fxml")));
         stage.setScene(new Scene(root));
         stage.setTitle("Edit Song");
         stage.initModality(Modality.WINDOW_MODAL);
@@ -201,7 +179,7 @@ public class MainController {
 
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(
-                Objects.requireNonNull(HelloApplication.class.getResource("deletesongdialog.fxml")));
+                Objects.requireNonNull(HelloApplication.class.getResource("Delete/deletesongdialog.fxml")));
         stage.setScene(new Scene(root));
         stage.setTitle("Delete Song");
         stage.initModality(Modality.WINDOW_MODAL);

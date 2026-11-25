@@ -1,11 +1,5 @@
 package com.sea.mytunesv1.BE;
 
-import javafx.collections.ObservableList;
-import javafx.scene.control.ComboBox;
-
-import java.io.File;
-import java.util.Locale;
-
 public class Song {
     private int id;
     private String title;
