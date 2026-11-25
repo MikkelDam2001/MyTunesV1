@@ -12,7 +12,7 @@ public class SongDAO_Mock implements ISongDataAcces {
 
     public SongDAO_Mock(){
         allSongs = new ArrayList<>();
-        allSongs.add(new Song(1,"SongExample","ArtistExample",2026,300));
+        allSongs.add(new Song(1,"SongExample","ArtistExample","red",300, ""));
     }
 
 

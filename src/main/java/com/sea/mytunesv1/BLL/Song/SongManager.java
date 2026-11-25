@@ -1,17 +1,19 @@
 package com.sea.mytunesv1.BLL.Song;
 
 import com.sea.mytunesv1.BE.Song;
+import com.sea.mytunesv1.DAL.DB.SongDAO_DB;
 import com.sea.mytunesv1.DAL.DB.SongDAO_Mock;
 import com.sea.mytunesv1.DAL.ISongDataAcces;
 
+import java.io.IOException;
 import java.util.List;
 
 public class SongManager {
     private SongSearcher songSearcher = new SongSearcher();
     private ISongDataAcces songDAO;
 
-    public SongManager() {
-        songDAO = new SongDAO_Mock(); }
+    public SongManager() throws IOException {
+        songDAO = new SongDAO_DB(); }
 
 
 
