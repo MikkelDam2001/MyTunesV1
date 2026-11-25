@@ -13,6 +13,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -79,6 +80,12 @@ public class MainController {
     public void initialize()  {
         tblAllSongs.setItems(songModel.getSongsAvailable());
 
+        // I initialize method
+// setup columns in tableview
+        colTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+        colArtist.setCellValueFactory(new PropertyValueFactory<>("artist"));
+        colCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
+        colTime.setCellValueFactory(new PropertyValueFactory<>("time"));
        // txtSongSearch.textProperty().addListener((observableValue, oldValue, newValue) -> {
        //     try {
          //       songModel.searchSong(newValue);
