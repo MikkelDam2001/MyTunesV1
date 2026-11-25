@@ -81,19 +81,11 @@ public class MainController {
         tblAllSongs.setItems(songModel.getSongsAvailable());
 
         // I initialize method
-// setup columns in tableview
+// setup columns i tableview
         colTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
         colArtist.setCellValueFactory(new PropertyValueFactory<>("artist"));
         colCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
         colTime.setCellValueFactory(new PropertyValueFactory<>("time"));
-       // txtSongSearch.textProperty().addListener((observableValue, oldValue, newValue) -> {
-       //     try {
-         //       songModel.searchSong(newValue);
-         //   } catch (Exception e) {
-           //     displayError(e);
-             //   e.printStackTrace();
-            //}
-        // });
 
 }
         private void displayError(Throwable t) {
