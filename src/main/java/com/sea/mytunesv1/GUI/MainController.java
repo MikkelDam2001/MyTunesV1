@@ -15,6 +15,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -24,26 +26,29 @@ import java.io.IOException;
 
 public class MainController {
     @FXML
+    private Label lblCurrentSong;
+    @FXML
     private TableView<Playlist> tblPlaylists;
     @FXML
     public TableView<Song> tblAllSongs;
     @FXML
     private ListView lstSongsOnPlaylist;
     @FXML
-    private Button btnPlayNext, btnPlayLast,btnStartPause;
+    private Button btnPlayNext, btnPlayLast, btnStartPause;
     @FXML
-    private Button btnNewPlaylist,btnEditPlaylist,btnDeletePlaylist;
+    private Button btnNewPlaylist, btnEditPlaylist, btnDeletePlaylist;
     @FXML
-    private Button btnMoveUp,btnMoveDown, btnDeleteSongOnPlaylist;
+    private Button btnMoveUp, btnMoveDown, btnDeleteSongOnPlaylist;
     @FXML
-    private Button btnNewSong,btnEditSong,btnDeleteSong;
+    private Button btnNewSong, btnEditSong, btnDeleteSong;
     @FXML
-    public TableColumn colTitle, colArtist,colCategory, colTime;
+    public TableColumn colTitle, colArtist, colCategory, colTime;
 
     private SongModel songModel;
+    private MusicController musicController;
 
 
-    public MainController(){
+    public MainController() {
 
         try {
             songModel = new SongModel();
@@ -55,9 +60,19 @@ public class MainController {
     }
 
 
-    public void initialize()  {
+    public void initialize() {
         tblAllSongs.setItems(songModel.getSongsAvailable());
 
+
+        // The user is able to play son by clicking 2 times with mouse
+        //tblAllSongs.setOnMouseClicked(event -> {
+        //    if (event.getClickCount() == 2) {
+        //        Song selected = tblAllSongs.getSelectionModel().getSelectedItem();
+        //        if (selected != null) {
+        //            musicController.playSong(selected);
+        //        }
+        //    }
+        //});
         // I initialize method
 // setup columns i tableview
         colTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
@@ -65,13 +80,14 @@ public class MainController {
         colCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
         colTime.setCellValueFactory(new PropertyValueFactory<>("time"));
 
-}
-        private void displayError(Throwable t) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Something went wrong");
-            alert.setHeaderText(t.getMessage());
-            alert.showAndWait();
-        }
+    }
+
+    private void displayError(Throwable t) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Something went wrong");
+        alert.setHeaderText(t.getMessage());
+        alert.showAndWait();
+    }
 
     @FXML
     public void handlePlayNext(ActionEvent actionEvent){
@@ -187,7 +203,6 @@ public class MainController {
                 ((Node)actionEvent.getSource()).getScene().getWindow() );
         stage.show();
     }
-
-
 }
+
 
