@@ -23,7 +23,7 @@ public class SongModel {
         return songsAvailable;
     }
 
-    public void searchsongs(String query) throws Exception {
+    public void searchSongs(String query) throws Exception {
         List<Song> searchResults = songManager.searchSongs(query);
         songsAvailable.clear();
         songsAvailable.addAll(searchResults);

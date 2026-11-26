@@ -23,7 +23,7 @@ public class PlaylistModel {
         return playlistsAvailable;
     }
 
-    public void searchplaylists(String query) throws Exception {
+    public void searchPlaylists(String query) throws Exception {
         List<Playlist> searchResults = playlistManager.searchPlaylists(query);
         playlistsAvailable.clear();
         playlistsAvailable.addAll(searchResults);
