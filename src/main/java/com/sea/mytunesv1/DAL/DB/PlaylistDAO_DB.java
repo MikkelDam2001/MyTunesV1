@@ -1,12 +1,12 @@
 package com.sea.mytunesv1.DAL.DB;
 
+//project imports
 import com.sea.mytunesv1.BE.Playlist;
 import com.sea.mytunesv1.DAL.IPlaylistDataAcces;
 
+//java imports
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +40,7 @@ public class PlaylistDAO_DB implements IPlaylistDataAcces {
                 int songs = rs.getInt("Songs");
                 int time = rs.getInt("Time");
 
-                playlists.add(new Playlist(name, songs, time));
+                playlists.add(new Playlist(id, name, songs, time));
             }
 
         }
@@ -50,8 +50,37 @@ public class PlaylistDAO_DB implements IPlaylistDataAcces {
 
     @Override
     public Playlist createPlaylist(Playlist newPlaylist) throws Exception {
-        return null;
+        String sql = "INSERT INTO Playlist (Name, Songs, Time) VALUES (?,0,0);";
+
+        try (Connection conn = dbConnector.getConnection()) {
+            PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+            // Bind parameters
+            stmt.setString(1,newPlaylist.getName());
+
+            // Run the specified SQL statement
+            stmt.executeUpdate();
+
+            // Get the generated ID from the DB
+            ResultSet rs = stmt.getGeneratedKeys();
+            int id = 0;
+
+            if (rs.next()) {
+                id = rs.getInt(1);
+            }
+
+            // laver playlist object and sender den igennem 3-lags
+            Playlist createdPlaylist = new Playlist(id, newPlaylist.getName(),0,0);
+
+            return createdPlaylist;
+        }
+        catch (SQLException ex)
+        {
+            ex.printStackTrace();
+            throw new Exception("Could not create playlist", ex);
+        }
     }
+
 
     @Override
     public void editPlaylist(Playlist playlist) throws Exception {
