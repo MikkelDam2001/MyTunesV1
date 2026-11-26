@@ -12,7 +12,7 @@ public class PlaylistModel {
     private ObservableList <Playlist> playlistsAvailable;
     private PlaylistManager playlistManager;
 
-    public void PlaylistModel() throws Exception {
+    public PlaylistModel() throws Exception {
         playlistManager = new PlaylistManager();
         playlistsAvailable = FXCollections.observableArrayList();
         playlistsAvailable.addAll(playlistManager.getAllPlaylists());
