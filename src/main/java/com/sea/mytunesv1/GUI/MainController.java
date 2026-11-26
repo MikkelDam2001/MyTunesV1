@@ -3,6 +3,7 @@ package com.sea.mytunesv1.GUI;
 // Project imports
 import com.sea.mytunesv1.BE.Playlist;
 import com.sea.mytunesv1.BE.Song;
+import com.sea.mytunesv1.GUI.Model.PlaylistModel;
 import com.sea.mytunesv1.GUI.Model.SongModel;
 import com.sea.mytunesv1.HelloApplication;
 
@@ -39,14 +40,18 @@ public class MainController {
     private Button btnNewSong,btnEditSong,btnDeleteSong;
     @FXML
     public TableColumn colTitle, colArtist,colCategory, colTime;
+    @FXML
+    public TableColumn colPlName, colPlNumOfSongs,colPlTime;
 
     private SongModel songModel;
+    private PlaylistModel playlistModel;
 
 
     public MainController(){
 
         try {
             songModel = new SongModel();
+            playlistModel = new PlaylistModel();
         } catch (Exception e) {
             displayError(e);
             e.printStackTrace();
@@ -57,13 +62,18 @@ public class MainController {
 
     public void initialize()  {
         tblAllSongs.setItems(songModel.getSongsAvailable());
+        tblPlaylists.setItems(playlistModel.getPlaylistsAvailable());
 
         // I initialize method
-// setup columns i tableview
+// setup columns i tableview til Sange
         colTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
         colArtist.setCellValueFactory(new PropertyValueFactory<>("artist"));
         colCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
         colTime.setCellValueFactory(new PropertyValueFactory<>("time"));
+
+        colPlName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colPlNumOfSongs.setCellValueFactory(new PropertyValueFactory<>("number of songs"));
+        colPlTime.setCellValueFactory(new PropertyValueFactory<>("time"));
 
 }
         private void displayError(Throwable t) {
