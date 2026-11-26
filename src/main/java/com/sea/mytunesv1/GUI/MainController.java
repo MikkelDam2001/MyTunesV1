@@ -26,7 +26,7 @@ public class MainController {
     @FXML
     private TableView<Playlist> tblPlaylists;
     @FXML
-    private TableView<Song> tblAllSongs;
+    public TableView<Song> tblAllSongs;
     @FXML
     private ListView lstSongsOnPlaylist;
     @FXML

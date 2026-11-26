@@ -23,6 +23,9 @@ public class SongManager {
     public List<Song> getAllSongs() throws Exception {
         return songDAO.getAllSongs();
     }
+    public Song createSong(Song newSong) throws Exception {
+        return songDAO.createSong(newSong);
+    }
 
     public List<Song> searchSongs(String query) throws Exception {
         List<Song> allSongs = getAllSongs();
