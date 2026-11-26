@@ -19,10 +19,15 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 // Java imports
+import java.io.Serial;
 import java.util.Objects;
 import java.io.IOException;
 
 public class MainController {
+
+    @FXML
+    private Label lblCurrentSong;
+
     @FXML
     private TableView<Playlist> tblPlaylists;
     @FXML
@@ -41,6 +46,7 @@ public class MainController {
     public TableColumn colTitle, colArtist,colCategory, colTime;
 
     private SongModel songModel;
+    private MusicController musicController = new MusicController();
 
 
     public MainController(){
@@ -57,6 +63,17 @@ public class MainController {
 
     public void initialize()  {
         tblAllSongs.setItems(songModel.getSongsAvailable());
+
+        tblAllSongs.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 2) {
+                Song selected = tblAllSongs.getSelectionModel().getSelectedItem();
+                if (selected != null) {
+                    System.out.println("Selected: ");
+                    System.out.println(selected);
+                    musicController.playSong(selected, lblCurrentSong);
+                }
+            }
+        });
 
         // I initialize method
 // setup columns i tableview

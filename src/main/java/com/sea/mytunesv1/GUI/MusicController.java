@@ -11,11 +11,11 @@ import java.net.URL;
 
 public class MusicController {
 
-    private Label lblCurrentSong;
+
     private MediaPlayer mediaPlayer;
 
     @FXML
-    public void playSong(Song song) {
+    public void playSong(Song song, Label lblCurrentSong) {
         try {
             if (mediaPlayer != null) {
                 mediaPlayer.stop();

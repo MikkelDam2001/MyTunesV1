@@ -5,11 +5,13 @@ import com.sea.mytunesv1.BE.Song;
 import com.sea.mytunesv1.GUI.Model.SongModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 // Java imports
 import java.io.File;
@@ -29,9 +31,18 @@ public class SongController {
 
     private File selectedFile;
 
+
+
+
     @FXML
     public void initialize(){
         cmbCategory.getItems().addAll("Pop", "Rock", "Hip-Hop", "Jazz", "Classical", "Electronic", "Country");
+        try {
+            this.songModel = new SongModel();
+        }catch (Exception e){
+            e.printStackTrace();
+
+        }
     }
 
     // Handles the chosen file
@@ -41,9 +52,9 @@ public class SongController {
         FileChooser chooser = new FileChooser();
         // Adds a file filter in file routing
         chooser.getExtensionFilters().add(
-                new FileChooser.ExtensionFilter("MP3 files", "*mp3"));
+                new FileChooser.ExtensionFilter("MP3 files", "*.mp3"));
         chooser.getExtensionFilters().add(
-                new FileChooser.ExtensionFilter("WAV files", "*wav"));
+                new FileChooser.ExtensionFilter("WAV files", "*.wav"));
         File file = chooser.showOpenDialog(txtFile.getScene().getWindow());
         if (file != null) {
             // sets file
@@ -77,6 +88,10 @@ public class SongController {
 
         try {
             songModel.createSong(newSong);
+            Node source = (Node) actionEvent.getSource();
+            Stage stage = (Stage) source.getScene().getWindow();
+            stage.close();
+
 
         }catch (Exception err){
             displayError(err);
