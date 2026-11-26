@@ -18,7 +18,7 @@ public class SongDAO_DB implements ISongDataAcces {
 
     @Override
     public List<Song> getAllSongs() throws Exception {
-        List<Song> movies = new ArrayList<>();
+        List<Song> songs = new ArrayList<>();
 
         // get data from db
         // try-with-resources
@@ -40,12 +40,12 @@ public class SongDAO_DB implements ISongDataAcces {
                 String filePath = rs.getString("FilePath");
 
 
-                movies.add(new Song(id, title, artist, category, time, filePath));
+                songs.add(new Song(id, title, artist, category, time, filePath));
             }
 
         }
 
-        return movies;
+        return songs;
     }
 
     @Override
