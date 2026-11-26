@@ -4,9 +4,7 @@ import com.sea.mytunesv1.BE.Song;
 import com.sea.mytunesv1.DAL.ISongDataAcces;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,7 +48,40 @@ public class SongDAO_DB implements ISongDataAcces {
 
     @Override
     public Song createSong(Song newSong) throws Exception {
-        return null;
+        String sql = "INSERT INTO Song (Title, Artist, Category, Time, Filepath) VALUES (?,?,?,?,?);";
+
+        try (Connection conn = dbConnector.getConnection()) {
+            PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+            // Bind parameters
+            stmt.setString(1,newSong.getTitle());
+            stmt.setString(2,newSong.getArtist());
+            stmt.setString(3,newSong.getCategory());
+            stmt.setInt(4,newSong.getTime());
+            stmt.setString(5,newSong.getFilepath());
+
+
+            // Run the specified SQL statement
+            stmt.executeUpdate();
+
+            // Get the generated ID from the DB
+            ResultSet rs = stmt.getGeneratedKeys();
+            int id = 0;
+
+            if (rs.next()) {
+                id = rs.getInt(1);
+            }
+
+            // Create song object and send up the layers
+            Song createdSong = new Song(id, newSong.getTitle(), newSong.getArtist(), newSong.getCategory(), newSong.getTime(), newSong.getFilepath());
+
+            return createdSong;
+        }
+        catch (SQLException ex)
+        {
+            ex.printStackTrace();
+            throw new Exception("Could not create song", ex);
+        }
     }
 
     @Override

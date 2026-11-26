@@ -4,20 +4,29 @@ import com.sea.mytunesv1.BE.Song;
 import com.sea.mytunesv1.BLL.Song.SongManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 
 import java.util.List;
 
 public class SongModel {
 
+    private FilteredList <Song> filteredList;
+
     private ObservableList <Song> songsAvailable;
+
     private SongManager songManager;
 
     public SongModel() throws Exception {
         songManager = new SongManager();
         songsAvailable = FXCollections.observableArrayList();
         songsAvailable.addAll(songManager.getAllSongs());
+        filteredList = new FilteredList<>(songsAvailable);
     }
 
+    public void createSong(Song newSong) throws Exception {
+        Song createdSong = songManager.createSong(newSong);
+        songsAvailable.add(createdSong);
+    }
 
     public ObservableList<Song> getSongsAvailable() {
         return songsAvailable;
