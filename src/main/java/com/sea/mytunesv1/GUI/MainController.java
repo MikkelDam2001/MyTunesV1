@@ -72,7 +72,7 @@ public class MainController {
         colTime.setCellValueFactory(new PropertyValueFactory<>("time"));
 
         colPlName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        colPlNumOfSongs.setCellValueFactory(new PropertyValueFactory<>("number of songs"));
+        colPlNumOfSongs.setCellValueFactory(new PropertyValueFactory<>("songs"));
         colPlTime.setCellValueFactory(new PropertyValueFactory<>("time"));
 
 }
