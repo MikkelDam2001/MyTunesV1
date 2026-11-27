@@ -41,7 +41,7 @@
             <Label text="Mp3 file" GridPane.rowIndex="5" />
             <TextField fx:id="txtTitle" promptText="Song title" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="txtArtist" promptText="Artist name" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <ComboBox fx:id="cmbCategory" editable="true" onAction="#handleChooseCategory" prefWidth="150.0" promptText="Genre" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cmbCategory" editable="true" prefWidth="150.0" promptText="Genre" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <TextField fx:id="txtLength" prefHeight="26.0" prefWidth="66.0" promptText="MM:SS" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets right="280.0" />
