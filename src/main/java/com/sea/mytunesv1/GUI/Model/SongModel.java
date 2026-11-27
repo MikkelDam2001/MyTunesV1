@@ -46,4 +46,11 @@ public class SongModel {
         songsAvailable.remove(selectedSong);
     }
 
+    public void editSong(Song selectedSong) throws Exception{
+        //Update song in DAL layer (through the layers)
+        songManager.editSong(selectedSong);
+
+        //songsAvailable.update(selectedSong);
+    }
+
 }
