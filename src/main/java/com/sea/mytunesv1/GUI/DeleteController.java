@@ -8,8 +8,6 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableView;
-import javafx.fxml.Initializable;
 import javafx.stage.Stage;
 
 public class DeleteController {
@@ -34,6 +32,7 @@ public class DeleteController {
 
     @FXML
     public void handlePLCancelFinal(ActionEvent actionEvent) {
+        ((Stage) ((Node) actionEvent.getSource()).getScene().getWindow()).close();
     }
 
     //Her vil vi slette sangen fra allsongs listen.
@@ -48,6 +47,7 @@ public class DeleteController {
 
     @FXML
     public void handleSongCancelFinal(ActionEvent actionEvent) {
+        ((Stage) ((Node) actionEvent.getSource()).getScene().getWindow()).close();
     }
 
     @FXML
@@ -56,5 +56,6 @@ public class DeleteController {
 
     @FXML
     public void handleSongOnPLCancelFinal(ActionEvent actionEvent) {
+        ((Stage) ((Node) actionEvent.getSource()).getScene().getWindow()).close();
     }
 }

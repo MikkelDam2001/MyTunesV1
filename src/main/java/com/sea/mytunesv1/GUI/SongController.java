@@ -100,11 +100,4 @@ public class SongController {
         alert.setHeaderText(t.getMessage());
         alert.showAndWait();
     }
-
-    @FXML
-    public void handleCancelEditSong(ActionEvent actionEvent) {
-    }
-    @FXML
-    public void handleSaveSongEdit(ActionEvent actionEvent) {
-    }
 }

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<DialogPane prefHeight="257.0" prefWidth="369.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sea.mytunesv1.GUI.PlaylistController">
+<DialogPane prefHeight="257.0" prefWidth="369.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sea.mytunesv1.GUI.EditController">
    <header>
       <AnchorPane prefHeight="259.0" prefWidth="369.0">
          <children>

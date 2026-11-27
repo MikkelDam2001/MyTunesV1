@@ -188,15 +188,25 @@ public class MainController {
     @FXML
     public void handleEditSong(ActionEvent actionEvent) throws IOException {
         // TJEK LINJE 150 i MRS APPLIKATION, DER SKAL LAVES NY CLASS TIL TIL EDIT MÅSKE.
+        Song selected = tblAllSongs.getSelectionModel().getSelectedItem();
+        if (selected == null) return;
+
+        FXMLLoader loader = new FXMLLoader(
+                HelloApplication.class.getResource("Edit/editsongdialog.fxml"));
+        Parent root = loader.load();
+
+        EditController editController = loader.getController();
+        editController.setSongModel(songModel);
+        editController.setSelectedSong(selected);
+
         Stage stage = new Stage();
-        Parent root = FXMLLoader.load(
-                Objects.requireNonNull(HelloApplication.class.getResource("Edit/editsongdialog.fxml")));
         stage.setScene(new Scene(root));
-        stage.setTitle("Edit Song");
+        stage.setTitle("Edit song");
         stage.initModality(Modality.WINDOW_MODAL);
-        stage.initOwner(
-                ((Node)actionEvent.getSource()).getScene().getWindow() );
-        stage.show();
+        stage.initOwner(((Node) actionEvent.getSource()).getScene().getWindow());
+        stage.showAndWait();
+
+        tblAllSongs.refresh();
     }
     @FXML
     public void handleDeleteSong(ActionEvent actionEvent) throws IOException {

@@ -18,10 +18,4 @@ public class PlaylistController {
     @FXML
     public void handleCancelNewPlaylist(ActionEvent actionEvent) {
     }
-    @FXML
-    public void handleSavePlaylistEdit(ActionEvent actionEvent) {
-    }
-    @FXML
-    public void handleCancelPlaylistEdit(ActionEvent actionEvent) {
-    }
 }
