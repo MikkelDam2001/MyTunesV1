@@ -36,7 +36,7 @@ public class SongController {
 
     @FXML
     public void initialize(){
-        cmbCategory.getItems().addAll("Pop", "Rock", "Hip-Hop", "Jazz", "Classical", "Electronic", "Country");
+        cmbCategory.getItems().addAll("Pop", "Rock", "Hip-Hop", "Jazz", "Classical", "Electronic", "Country", "R&B", "House");
         try {
             this.songModel = new SongModel();
         }catch (Exception e){
