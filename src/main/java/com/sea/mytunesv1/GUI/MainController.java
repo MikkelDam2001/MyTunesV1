@@ -60,7 +60,6 @@ public class MainController {
 
     }
 
-
     public void initialize()  {
         tblAllSongs.setItems(songModel.getSongsAvailable());
 
