@@ -192,16 +192,25 @@ public class MainController {
     public void handleDeleteSong(ActionEvent actionEvent) throws IOException {
         // TJEK LINJE 174 I MRS APPLIKATION, CLASS ER OPRETTET TIL DELETE METODE.
         // TJEK OP PÅ EVT SPAGHETTI KODE SENERE.
+        Song selected = tblAllSongs.getSelectionModel().getSelectedItem();
+        if (selected == null) return;
+
+        FXMLLoader loader = new FXMLLoader(
+                HelloApplication.class.getResource("Delete/deletesongdialog.fxml"));
+        Parent root = loader.load();
+
+        DeleteController deleteController = loader.getController();
+        deleteController.setSongModel(songModel);
+        deleteController.setSelectedSong(selected);
 
         Stage stage = new Stage();
-        Parent root = FXMLLoader.load(
-                Objects.requireNonNull(HelloApplication.class.getResource("Delete/deletesongdialog.fxml")));
         stage.setScene(new Scene(root));
         stage.setTitle("Delete Song");
         stage.initModality(Modality.WINDOW_MODAL);
-        stage.initOwner(
-                ((Node)actionEvent.getSource()).getScene().getWindow() );
-        stage.show();
+        stage.initOwner(((Node) actionEvent.getSource()).getScene().getWindow());
+        stage.showAndWait();
+
+        tblAllSongs.refresh();
     }
 
 
