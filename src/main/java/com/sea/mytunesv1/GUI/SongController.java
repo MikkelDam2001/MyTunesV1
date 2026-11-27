@@ -63,8 +63,7 @@ public class SongController {
 
     @FXML
     private void handleCancelNewSong(ActionEvent actionEvent) {
-
-
+        ((Stage) ((Node) actionEvent.getSource()).getScene().getWindow()).close();
     }
 
     @FXML
