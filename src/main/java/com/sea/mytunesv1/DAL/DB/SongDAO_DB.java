@@ -109,7 +109,7 @@ public class SongDAO_DB implements ISongDataAcces {
 
     @Override
     public void deleteSong(Song song) throws Exception {
-        String sql = "DELETE FROM dbo.Song WHERE Id = ?";
+        String sql = "DELETE FROM Song WHERE Id = ?";
 
         // try-with-resources
         try (Connection conn = dbConnector.getConnection();

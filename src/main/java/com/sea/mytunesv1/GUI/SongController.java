@@ -32,8 +32,6 @@ public class SongController {
     private File selectedFile;
 
 
-
-
     @FXML
     public void initialize(){
         cmbCategory.getItems().addAll("Pop", "Rock", "Hip-Hop", "Jazz", "Classical", "Electronic", "Country", "R&B", "House");
@@ -64,12 +62,9 @@ public class SongController {
     }
 
     @FXML
-    private void handleChooseCategory(ActionEvent actionEvent) {
-
-    }
-
-    @FXML
     private void handleCancelNewSong(ActionEvent actionEvent) {
+
+
     }
 
     @FXML
