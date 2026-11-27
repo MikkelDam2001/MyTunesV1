@@ -5,6 +5,7 @@ import com.sea.mytunesv1.BE.Playlist;
 import com.sea.mytunesv1.BE.Song;
 import com.sea.mytunesv1.GUI.Model.SongModel;
 import com.sea.mytunesv1.HelloApplication;
+import com.sea.mytunesv1.GUI.Model.PlaylistModel;
 
 // Java FX imports
 import javafx.event.ActionEvent;
@@ -44,15 +45,19 @@ public class MainController {
     private Button btnNewSong,btnEditSong,btnDeleteSong;
     @FXML
     public TableColumn colTitle, colArtist,colCategory, colTime;
+    @FXML
+    public TableColumn colPlName, colPlNumOfSongs,colPlTime;
 
     private SongModel songModel;
     private MusicController musicController = new MusicController();
+    private PlaylistModel playlistModel;
 
 
     public MainController(){
 
         try {
             songModel = new SongModel();
+            playlistModel = new PlaylistModel();
         } catch (Exception e) {
             displayError(e);
             e.printStackTrace();
@@ -63,6 +68,7 @@ public class MainController {
 
     public void initialize()  {
         tblAllSongs.setItems(songModel.getSongsAvailable());
+        tblPlaylists.setItems(playlistModel.getPlaylistsAvailable());
 
         tblAllSongs.setOnMouseClicked(event -> {
             if (event.getClickCount() == 2) {
@@ -76,12 +82,16 @@ public class MainController {
         });
 
         // I initialize method
-// setup columns i tableview
+// setup columns i tableview til sange
         colTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
         colArtist.setCellValueFactory(new PropertyValueFactory<>("artist"));
         colCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
         colTime.setCellValueFactory(new PropertyValueFactory<>("time"));
 
+        //setup colums i tableveiw til playlists
+        colPlName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colPlNumOfSongs.setCellValueFactory(new PropertyValueFactory<>("number of songs"));
+        colPlTime.setCellValueFactory(new PropertyValueFactory<>("time"));
 }
         private void displayError(Throwable t) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
