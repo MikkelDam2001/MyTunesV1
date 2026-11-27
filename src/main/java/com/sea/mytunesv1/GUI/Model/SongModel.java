@@ -38,5 +38,12 @@ public class SongModel {
         songsAvailable.addAll(searchResults);
     }
 
+    public void deleteSong(Song selectedSong) throws Exception {
+        //delete song in DAL layer (through the layers)
+        songManager.deleteSong(selectedSong);
+
+        //remove from observable list (and UI)
+        songsAvailable.remove(selectedSong);
+    }
 
 }

@@ -32,4 +32,8 @@ public class SongManager {
         List<Song> searchResult = SongSearcher.search(allSongs, query);
         return searchResult;
     }
+
+    public void deleteSong(Song selectedSong) throws Exception {
+        songDAO.deleteSong(selectedSong);
+    }
 }
